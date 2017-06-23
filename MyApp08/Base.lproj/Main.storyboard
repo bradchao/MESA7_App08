@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="498" y="-38"/>
         </scene>
-        <!--View Controller-->
+        <!--PainterVC-->
         <scene sceneID="vC9-wL-fXA">
             <objects>
-                <viewController storyboardIdentifier="paintervc" id="iet-EA-fN2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="paintervc" id="iet-EA-fN2" customClass="PainterVC" customModule="MyApp08" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3FX-6y-VfX"/>
                         <viewControllerLayoutGuide type="bottom" id="ihc-hT-DRl"/>
@@ -169,16 +169,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="40"/>
                                         <color key="backgroundColor" red="0.97799948439999995" green="1" blue="0.76113046679999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="clearPainter:" destination="iet-EA-fN2" eventType="touchUpInside" id="wF1-wK-CmU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3h-qW-9ZE">
                                         <rect key="frame" x="85" y="0.0" width="85" height="40"/>
                                         <color key="backgroundColor" red="0.89211223179999999" green="1" blue="0.93686654120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoPainter:" destination="iet-EA-fN2" eventType="touchUpInside" id="UoW-dh-4kc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-RB-3cS">
                                         <rect key="frame" x="170" y="0.0" width="84" height="40"/>
                                         <color key="backgroundColor" red="0.97799948439999995" green="1" blue="0.76113046679999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Redo"/>
+                                        <connections>
+                                            <action selector="redoPainter:" destination="iet-EA-fN2" eventType="touchUpInside" id="aFL-Xm-8gW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhS-bP-n5E">
                                         <rect key="frame" x="254" y="0.0" width="85" height="40"/>
@@ -207,6 +216,9 @@
                             <constraint firstItem="Tki-AG-ndN" firstAttribute="top" secondItem="3FX-6y-VfX" secondAttribute="bottom" constant="2" id="ziS-h7-Qzh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="painterView" destination="SiM-Gu-OBq" id="bV3-1R-ChK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pac-9J-zKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qgc-cb-lAY" userLabel="Exit" sceneMemberID="exit"/>
