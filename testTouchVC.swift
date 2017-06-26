@@ -29,6 +29,18 @@ class testTouchVC: UIViewController {
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationTest(_:)))
         myView.addGestureRecognizer(rotationGesture)
         
+
+        let swipeRGesture = UISwipeGestureRecognizer(target: self,
+                                                action: #selector(swipeTest(_:)))
+        swipeRGesture.direction = UISwipeGestureRecognizerDirection.right
+        swipeRGesture.numberOfTouchesRequired = 1
+        myView.addGestureRecognizer(swipeRGesture)
+
+        let swipeLGesture = UISwipeGestureRecognizer(target: self,
+                                                     action: #selector(swipeTest(_:)))
+        swipeLGesture.direction = UISwipeGestureRecognizerDirection.left
+        swipeLGesture.numberOfTouchesRequired = 1
+        myView.addGestureRecognizer(swipeLGesture)
         
     }
 
@@ -57,6 +69,21 @@ class testTouchVC: UIViewController {
             print("順:\(deg)")
         }else {
             print("逆:\(deg)")
+        }
+    }
+    
+    @objc func swipeTest(_ sender: UISwipeGestureRecognizer){
+        switch sender.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("r")
+            case UISwipeGestureRecognizerDirection.up:
+                print("u")
+            case UISwipeGestureRecognizerDirection.down:
+                print("d")
+            case UISwipeGestureRecognizerDirection.left:
+                print("l")
+            default:
+                break
         }
     }
     
