@@ -13,16 +13,39 @@ class PainterView: UIView {
     private var viewH:CGFloat = 0
     private var lines:Array<Array<(CGFloat,CGFloat)>> = [[]]
     private var recycle:Array<Array<(CGFloat,CGFloat)>> = [[]]
+    private var isInit = false
+    private var context:CGContext?
+    
+    private func initState(_ rect:CGRect){
+        isInit = true
+        viewW = rect.size.width
+        viewH = rect.size.height
+        context = UIGraphicsGetCurrentContext()
+    }
     
     // 呈現外觀
     override func draw(_ rect: CGRect) {
-        viewW = rect.size.width
-        viewH = rect.size.height
+        if !isInit {initState(rect)}
 
-        let context:CGContext? = UIGraphicsGetCurrentContext()
-        
         context?.setLineWidth(2)
         context?.setStrokeColor(red: 0, green: 0, blue: 1, alpha: 1)
+
+        let img = UIImage(named: "apple.jpeg")
+        let imgW = img?.size.width
+        let imgH = img?.size.height
+//        var temp = UIImageView(image: img)
+//        temp.frame = CGRect(x: 0, y: 0, width: imgW!, height: imgH!)
+//        addSubview(temp)
+
+        // 上下顛倒 => Homework
+//        let imgCG = img?.cgImage
+//        context?.draw(imgCG!, in:
+//            CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
+        img?.draw(in: CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
+        
+        
         
         for j in 0..<lines.count {
             if lines[j].count<=1 {continue}
@@ -35,6 +58,7 @@ class PainterView: UIView {
                 context?.drawPath(using: CGPathDrawingMode.stroke)
             }
         }
+        
         
         
     }
