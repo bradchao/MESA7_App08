@@ -15,8 +15,12 @@ class TestTouchView: UIView {
     private func initState(){
         isInitStat = true
         
-        let vc = findSuperVC(whichView: self)
-        ttvc = vc as! testTouchVC
+//        let vc = findSuperVC(whichView: self)
+//        ttvc = vc as! testTouchVC
+//        print(ttvc!.a)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        ttvc = storyboard.instantiateViewController(withIdentifier: "touchvc") as! testTouchVC
         print(ttvc!.a)
     }
     
@@ -41,5 +45,7 @@ class TestTouchView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("myView: touch")
+        //ttvc?.touchesBegan(touches, with: event)
+//        super.touchesBegan(touches, with: event)
     }
 }
